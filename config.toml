@@ -1,0 +1,4 @@
+theme = "noctis"
+
+[editor]
+true-color = true

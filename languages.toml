@@ -1,0 +1,25 @@
+[[language]]
+name = "python"
+auto-format = true
+formatter = { command = "black", args = ["-", "--quiet"] }
+language-server = { command = "pylsp" }
+config = { pylsp.plugins.pycodestyle.enabled = false, pyslp.plugins.mccabe.enabled = false, pylsp.plugins.pyflakes.enabled = false, pylsp.plugins.flake8.enabled = true, pylsp.configurationSources = [
+  "flake8",
+], pylsp.plugins.flake8.config = ".flake8" }
+
+[[language]]
+name = "toml"
+auto-format = true
+injection-regex = "toml"
+file-types = ["toml"]
+roots = []
+comment-token = "#"
+language-server = { command = "taplo", args = ["lsp", "stdio"] }
+indent = { tab-width = 2, unit = "  " }
+
+[[language]]
+name = "markdown"
+auto-format = true
+file-types = ["md"]
+comment-token = "#"
+language-server = { command = "marksman" }
