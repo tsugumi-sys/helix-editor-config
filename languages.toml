@@ -1,6 +1,7 @@
 [[language]]
 name = "python"
 scope = "source.python"
+roots = []
 injection-regex = "python"
 file-types = ["py"]
 comment-token = "#"
@@ -12,17 +13,30 @@ config = {}
 
 [[language]]
 name = "toml"
+scope = "source.toml"
+roots = ["*.toml"]
 auto-format = true
 injection-regex = "toml"
 file-types = ["toml"]
-roots = []
 comment-token = "#"
 language-server = { command = "taplo", args = ["lsp", "stdio"] }
 indent = { tab-width = 2, unit = "  " }
 
 [[language]]
 name = "markdown"
+scope = "text.markdown"
+roots = []
 auto-format = true
 file-types = ["md"]
 comment-token = "#"
 language-server = { command = "marksman" }
+
+
+[[language]]
+name = "terraform"
+scope = "source.terraform"
+roots = []
+auto-format = true
+file-types = ["tf", "terraform"]
+comment-token = "#"
+language-server = { command = "terraform-ls", args = ["serve"] }
