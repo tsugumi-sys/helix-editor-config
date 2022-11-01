@@ -2,3 +2,4 @@ theme = "noctis"
 
 [editor]
 true-color = true
+cursorline = true
