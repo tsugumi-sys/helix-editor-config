@@ -31,12 +31,28 @@ file-types = ["md"]
 comment-token = "#"
 language-server = { command = "marksman" }
 
+[[language]]
+name = "hcl"
+scope = "source.hcl"
+injection-regex = "(hcl|tf|nomad)"
+file-types = ["hcl", "tf", "nomad"]
+roots = []
+comment-token = "#"
+indent = { tab-width = 2, unit = "  " }
+language-server = { command = "terraform-ls", args = [
+  "serve",
+], language-id = "terraform" }
+auto-format = true
 
 [[language]]
-name = "terraform"
-scope = "source.terraform"
+name = "tfvars"
+scope = "source.tfvars"
+file-types = ["tfvars"]
 roots = []
-auto-format = true
-file-types = ["tf", "terraform"]
 comment-token = "#"
-language-server = { command = "terraform-ls", args = ["serve"] }
+indent = { tab-width = 2, unit = "  " }
+language-server = { command = "terraform-ls", args = [
+  "serve",
+], language-id = "terraform-vars" }
+auto-format = true
+grammar = "hcl"
