@@ -7,9 +7,13 @@ file-types = ["py"]
 comment-token = "#"
 auto-format = true
 formatter = { command = "black", args = ["-", "--quiet"] }
-language-server = { command = "pyright-langserver", args = ["--stdio"] }
+language-server = { command = "ruff-lsp", args = [] }
+config = { settings = { jedi_config = { environment = '.venv' } } }
 indent = { tab-width = 4, unit = "    " }
-config = {}
+
+[[grammar]]
+name = "python"
+source = { git = "https://github.com/tree-sitter/tree-sitter-python", rev = "9e53981ec31b789ee26162ea335de71f02186003" }
 
 [[language]]
 name = "toml"
@@ -30,6 +34,7 @@ auto-format = true
 file-types = ["md"]
 comment-token = "#"
 language-server = { command = "marksman" }
+formatter = { command = 'deno', args = ["fmt", "-", "--ext", "md"] }
 
 [[language]]
 name = "hcl"

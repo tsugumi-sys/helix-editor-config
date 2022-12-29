@@ -1,5 +1,4 @@
-theme = "noctis"
-
+theme = "dracula"
 [editor]
 true-color = true
 cursorline = true
