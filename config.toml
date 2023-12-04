@@ -1,4 +1,4 @@
-theme = "dracula_at_night"
+theme = "edge_neon"
 [editor]
 true-color = true
 cursorline = true
