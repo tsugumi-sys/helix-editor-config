@@ -16,7 +16,7 @@ file-types = ["py"]
 comment-token = "#"
 auto-format = true
 formatter = { command = "black", args = ["-", "--quiet"] }
-language-servers = [ 'ruff-lsp' ]
+language-servers = ['ruff-lsp']
 indent = { tab-width = 4, unit = "    " }
 
 [[grammar]]
@@ -30,7 +30,7 @@ source = { git = "https://github.com/tree-sitter/tree-sitter-python", rev = "9e5
 [language-server.deno-lsp-javascript]
 command = "deno"
 args = ["lsp"]
-language-id="javascript"
+language-id = "javascript"
 config = { enable = true, lint = true, unstable = true }
 
 [[language]]
@@ -43,13 +43,13 @@ roots = ["deno.json", "package.json", "tsconfig.json"]
 comment-token = "//"
 indent = { tab-width = 2, unit = "  " }
 auto-format = true
-language-servers = [ "deno-lsp-javascript" ]
+language-servers = ["deno-lsp-javascript"]
 formatter = { command = 'deno', args = ["fmt", "-", "--ext", "js"] }
 
 [language-server.deno-lsp-jsreact]
 command = "deno"
 args = ["lsp"]
-language-id="javascriptreact"
+language-id = "javascriptreact"
 config = { enable = true, lint = true, unstable = true }
 
 
@@ -63,7 +63,7 @@ roots = ["deno.json", "package.json", "tsconfig.json"]
 comment-token = "//"
 indent = { tab-width = 2, unit = "  " }
 grammar = "javascript"
-language-servers = [ "deno-lsp-jsreact" ]
+language-servers = ["deno-lsp-jsreact"]
 auto-format = true
 formatter = { command = 'deno', args = ["fmt", "-", "--ext", "jsx"] }
 
@@ -71,7 +71,7 @@ formatter = { command = 'deno', args = ["fmt", "-", "--ext", "jsx"] }
 [language-server.deno-lsp-ts]
 command = "deno"
 args = ["lsp"]
-language-id="typescript"
+language-id = "typescript"
 config = { enable = true, lint = true, unstable = true }
 
 [[language]]
@@ -83,19 +83,19 @@ shebangs = ["deno", "node"]
 roots = ["deno.json", "package.json", "tsconfig.json"]
 indent = { tab-width = 2, unit = "  " }
 auto-format = true
-language-servers = [ "deno-lsp-ts" ]
+language-servers = ["deno-lsp-ts"]
 formatter = { command = 'deno', args = ["fmt", "-", "--ext", "ts"] }
 
 [language-server.deno-lsp-tsx]
 command = "deno"
 args = ["lsp"]
-language-id="typescriptreact"
+language-id = "typescriptreact"
 config = { enable = true, lint = true, unstable = true }
 
 [[language]]
 name = "tsx"
 scope = "source.tsx"
-injection-regex = "^(tsx)$" # |typescript
+injection-regex = "^(tsx)$"                                           # |typescript
 file-types = ["tsx"]
 shebangs = ["deno", "node"]
 roots = ["deno.json", "package.json", "tsconfig.json"]
@@ -285,4 +285,34 @@ indent = { tab-width = 2, unit = "  " }
 
 [[grammar]]
 name = "ruby"
-kource = { git = "https://github.com/tree-sitter/tree-sitter-ruby", rev = "206c7077164372c596ffa8eaadb9435c28941364" }
+source = { git = "https://github.com/tree-sitter/tree-sitter-ruby", rev = "206c7077164372c596ffa8eaadb9435c28941364" }
+
+
+###
+# Rust
+###
+[language-server.rust-analyzer]
+command = "rust-analyzer"
+
+[language-server.rust-analyzer.config]
+inlayHints.bindingModeHints.enable = false
+inlayHints.closingBraceHints.minLines = 10
+inlayHints.closureReturnTypeHints.enable = "with_block"
+inlayHints.discriminantHints.enable = "fieldless"
+inlayHints.lifetimeElisionHints.enable = "skip_trivial"
+inlayHints.typeHints.hideClosureInitialization = false
+
+[[grammar]]
+name = "rust"
+source = { git = "https://github.com/tree-sitter/tree-sitter-rust", rev = "0431a2c60828731f27491ee9fdefe25e250ce9c9" }
+
+[[language]]
+name = "rust"
+scope = "source.rust"
+injection-regex = "rust"
+file-types = ["rs"]
+roots = ["Cargo.toml", "Cargo.lock"]
+auto-format = true
+comment-token = "//"
+language-servers = ["rust-analyzer"]
+indent = { tab-width = 4, unit = "    " }
