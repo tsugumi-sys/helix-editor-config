@@ -1,4 +1,4 @@
-theme = "rose_pine_moon"
+theme = "dracula_at_night"
 [editor]
 true-color = true
 cursorline = true
